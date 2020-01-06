@@ -2,35 +2,35 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-require('dotenv').config();
+require('dotenv-flow').config();
 
 const app = express();
+const env = process.env.NODE_ENV;
 const port = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(
-  uri,
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-  }
-);
+const mongoURI = process.env.ATLAS_URI;
+mongoose
+  .connect(
+    mongoURI,
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true
+    })
+  .then(() => {
+    console.log('[MongoDB Access] MongoDB database connection established successfully!');
+  })
+  .catch((err) => {
+    console.log('[MongoDB Error] ', err);
+  });
 
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log('MongoDB database connection established successfully!');
-});
+const eventRouter = require('./routes/event');
+const userRouter = require('./routes/user');
 
-//app.get('/', (req, res) => res.send('Hello World!'));
+app.use('/event', eventRouter);
+app.use('/user', userRouter);
 
-const eventsRouter = require('./routes/events');
-const usersRouter = require('./routes/users');
-
-app.use('/events', eventsRouter);
-app.use('/users', usersRouter);
-
-app.listen(port, () => console.log(`Server is running on port: ${port}!`));
+app.listen(port, () => console.log(`Server is running on ${env} port: ${port}!`));

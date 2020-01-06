@@ -9,15 +9,16 @@ const Header = () => (
     <div className="collapse navbar-collapse">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <Link to="/events" className="nav-link">Events</Link>
+          <Link to="/event/list" className="nav-link">Events</Link>
         </li>
         <li className="nav-item">
-          <Link to="/events/create" className="nav-link">Create Event</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/user" className="nav-link">User</Link>
+          <Link to="/event/create" className="nav-link">Create Event</Link>
         </li>
       </ul>
+    </div>
+    <div className="form-inline my-2 my-lg-0">
+      <Link to="/user/login" className="btn btn-sm align-middle btn-outline-secondary">Sign In</Link>
+      <Link to="/user/create" className="btn btn-sm align-middle btn-success">Sign Up</Link>
     </div>
   </nav>
 );

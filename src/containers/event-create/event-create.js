@@ -26,7 +26,7 @@ const EventCreate = (props) => {
       tags: formElements.tags.value,
       ageLimit: formElements.ageLimit.value,
     };
-    axios.post('http://localhost:5000/events/add', eventObject)
+    axios.post('http://localhost:5000/event/add', eventObject)
       .then(res => {
         console.log(res.data)
       })
