@@ -4,6 +4,11 @@ const config = {
     'getAll': '/event',
     'getById': '/event/{ID}',
     'add': '/event/add',
+  },
+  'user': {
+    'register': '/user/register',
+    'login': '/user/login',
+    'profile': '/user/profile',
   }
 };
 

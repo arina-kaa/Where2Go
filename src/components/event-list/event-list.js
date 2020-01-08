@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CardList from '../../components/card-list/card-list';
-import { getEvents } from '../../api/Event';
+import { getAllEvents } from '../../api/event';
 
 const EventList = (props) => {
   const [events, setEvents] = useState([]);
@@ -8,7 +8,7 @@ const EventList = (props) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    getEvents()
+    getAllEvents()
       .then(res => {
         setTimeout(() => {
           setEvents(res);
@@ -19,8 +19,8 @@ const EventList = (props) => {
         setError(err);
         setLoad(true)
       })
-  }, []);
-
+    }, []
+  );
 
   if (load) {
     return (<ul>

@@ -1,8 +1,6 @@
 import React from 'react';
 import Card from "../card/card";
 
-import './style.scss'
-
 const CardList = (props) => {
   return(
     <div>

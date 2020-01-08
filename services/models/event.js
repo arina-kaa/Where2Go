@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const Scheme = mongoose.Schema;
 
 const eventSchema = new Scheme({
-  createdBy: {
-    type: String,
-    required: true
-  },
   title: {
     type: String,
     required: true
@@ -22,7 +18,7 @@ const eventSchema = new Scheme({
   phone: {
     type: String
   },
-  shortDescription: {
+  short_description: {
     type: String,
     required: true
   },
@@ -33,16 +29,19 @@ const eventSchema = new Scheme({
     type: Number
   },
   tags: {
-    type: Object
+    type: Array
   },
-  ageLimit: {
+  age_limit: {
     type: Number,
     required: true
+  },
+  likes_count: {
+    type: Number,
+    default: 0
   }
 }, {
   timestamps: true
 });
 
 const Event = mongoose.model('Event', eventSchema);
-
 module.exports = Event;

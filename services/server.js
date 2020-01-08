@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 require('dotenv-flow').config();
 
@@ -8,8 +9,14 @@ const app = express();
 const env = process.env.NODE_ENV;
 const port = process.env.PORT;
 
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 
 const mongoURI = process.env.ATLAS_URI;
 mongoose
@@ -20,12 +27,8 @@ mongoose
       useCreateIndex: true,
       useUnifiedTopology: true
     })
-  .then(() => {
-    console.log('[MongoDB Access] MongoDB database connection established successfully!');
-  })
-  .catch((err) => {
-    console.log('[MongoDB Error] ', err);
-  });
+  .then(() => console.log('[MongoDB Access] MongoDB database connection established successfully!'))
+  .catch((err) => console.log('[MongoDB Error] ', err));
 
 const eventRouter = require('./routes/event');
 const userRouter = require('./routes/user');

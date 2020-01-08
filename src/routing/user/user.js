@@ -1,12 +1,14 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
-import UserCreate from "../../containers/user-create/user-create";
-import UserLogin from "../../containers/user-login/user-login";
+import UserRegister from "../../components/user-register/user-register";
+import UserLogin from "../../components/user-login/user-login";
+import UserProfile from "../../components/user-profile/user-profile";
 
 const UserRouting = () => (
   <Switch>
-    <Route exact path='/user/create' component={UserCreate}/>
+    <Route exact path='/user/register' component={UserRegister}/>
     <Route exact path='/user/login' component={UserLogin}/>
+    <Route exact path='/user/profile' component={UserProfile}/>
   </Switch>
 );
 
