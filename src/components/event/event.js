@@ -32,10 +32,25 @@ const Event = (props) =>
     if (load)
     {
         return (
-            <div className="container">
-                <h1>{event.title}</h1>
+            <div className="container event">
+                <h1 className="event-title">{event.title}</h1>
+                {(event.tags)
+                    ? <div className="event-tags">
+                        {event.tags.map((tag, key) => (
+                            <span key={key} className="badge badge-pill badge-success event-tag">{tag}</span>
+                        ))}
+                        </div>
+                    : null
+                }
+                {(event.short_description)
+                    ? <div className="row">
+                        <p className="col-sm-2"><strong>Краткое описание:</strong></p>
+                        <p className="col-sm-10">{event.short_description}</p>
+                    </div>
+                    : null
+                }
                 {(event.image_path) ? <img src={event.image_path} className="event-image" alt={event.title} /> : null}
-                <h2>Описание</h2>
+                <h2 className="event-subtitle">Описание</h2>
                 {(event.datetime)
                     ? <div className="row">
                         <p className="col-sm-2"><strong>Дата и время:</strong></p>
@@ -50,10 +65,21 @@ const Event = (props) =>
                     </div>
                     : null
                 }
-                {(event.short_description)
+                {(event.description)
                     ? <div className="row">
-                        <p className="col-sm-2"><strong>Краткое описание:</strong></p>
-                        <p className="col-sm-10">{event.short_description}</p>
+                        <p className="col-sm-2"><strong>Подробное описание:</strong></p>
+                        <p className="col-sm-10">{event.description}</p>
+                    </div>
+                    : null
+                }
+                <div className="row">
+                    <p className="col-sm-2"><strong>Стоимость:</strong></p>
+                    <p className="col-sm-10">{(event.cost > 0) ? event.cost : 'Бесплатно'}</p>
+                </div>
+                {(event.age_limit)
+                    ? <div className="row">
+                        <p className="col-sm-2"><strong>Возрастное ограничение:</strong></p>
+                        <p className="col-sm-10">{event.age_limit}</p>
                     </div>
                     : null
                 }

@@ -31,6 +31,8 @@ const UserLogin = () =>
                 case 'password':
                     if (isEmailValid) document.getElementById('submitButton').removeAttribute('disabled');
                     break;
+                default:
+                    break;
             }
         }
     };

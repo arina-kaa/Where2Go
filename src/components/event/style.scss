@@ -2,6 +2,22 @@
 
 .event
 {
+    &-title,
+    &-subtitle
+    {
+        margin-bottom: 20px;
+    }
+
+    &-tags
+    {
+        margin-bottom: 20px;
+    }
+
+    &-tag
+    {
+        margin-right: 5px;
+    }
+
     &-image
     {
         max-width: 500px;
