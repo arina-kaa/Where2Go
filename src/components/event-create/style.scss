@@ -1,7 +1,20 @@
 @import "../common_style";
-@import "~react-datepicker/dist/react-datepicker.css";
+@import "~react-widgets/dist/css/react-widgets.css";
 
 .react-datepicker-wrapper
 {
   display: block;
+}
+
+.rw-multiselect
+{
+  .rw-widget-picker
+  {
+    height: calc(1.5em + 0.75rem + 2px);
+  }
+
+  .rw-input-reset
+  {
+    height: auto;
+  }
 }

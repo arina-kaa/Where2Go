@@ -1,4 +1,5 @@
 import React from 'react';
+import { logout } from "../../api/user";
 import { Link, useHistory } from 'react-router-dom';
 
 import './style.scss'
@@ -6,10 +7,10 @@ import './style.scss'
 const Header = () => {
   let history = useHistory();
 
-  const logout = (e) => {
+  const handleLogout = (e) => {
     e.preventDefault();
-    localStorage.removeItem('usertoken');
-    history.push('/');
+    logout();
+    history.push('/event/list');
   };
   const loginRegLink = (
     <div className="form-inline my-2 my-lg-0">
@@ -20,21 +21,21 @@ const Header = () => {
   const userLink = (
     <div className="form-inline my-2 my-lg-0">
       <Link to="/user/profile" className="btn btn-sm align-middle btn-outline-secondary">Profile</Link>
-      <Link to="/user/logout" onClick={logout} className="btn btn-sm align-middle btn-success">Log Out</Link>
+      <Link to="/user/logout" onClick={handleLogout} className="btn btn-sm align-middle btn-success">Log Out</Link>
     </div>
   );
 
   return(
     <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-      <Link to="/" className="navbar-brand">Where2go</Link>
+      <Link to="/event/list" className="navbar-brand">Where2go</Link>
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link to="/event/list" className="nav-link">Events</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/event/create" className="nav-link">Create Event</Link>
-          </li>
+            { localStorage.usertoken
+                ? <li className="nav-item">
+                    <Link to="/event/create" className="nav-link">Create Event</Link>
+                </li>
+                : null
+            }
         </ul>
       </div>
       { localStorage.usertoken ? userLink : loginRegLink }

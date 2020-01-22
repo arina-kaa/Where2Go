@@ -3,12 +3,14 @@ const config = {
   'event': {
     'getAll': '/event',
     'getById': '/event/{ID}',
+    'getMultipleByIds': '/event/multipleByIds',
     'add': '/event/add',
   },
   'user': {
     'register': '/user/register',
+    'update': '/user/update',
     'login': '/user/login',
-    'profile': '/user/profile',
+    'profile': '/user/profile'
   }
 };
 

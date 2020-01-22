@@ -26,12 +26,10 @@ const userSchema = new Scheme({
     default: 'user'
   },
   created_events: {
-    type: Object,
-    default: {}
+    type: Array
   },
   liked_events: {
-    type: Object,
-    default: {}
+    type: Array
   }
 }, {
   timestamps: true

@@ -1,7 +1,53 @@
+@import url(https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css);
 @import "../common_style";
 
 .card
 {
   max-width: 300px;
   display: inline-block;
+  margin-bottom: 30px;
+  position: relative;
+
+  &-img-top
+  {
+    height: 160px;
+  }
+
+  &-body
+  {
+    height: 100%;
+    max-height: 380px;
+  }
+
+  &-title
+  {
+    height: 24px;
+  }
+
+  &-text
+  {
+    height: 72px;
+  }
+}
+
+.card-body
+{
+  position: relative;
+}
+
+.icon
+{
+  position: absolute;
+  right: 1.25rem;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  color: #dfdfdf;
+
+  &:hover,
+  &.ion-md-heart
+  {
+    color: #ff3347;
+  }
 }

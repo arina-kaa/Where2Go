@@ -2,7 +2,7 @@ import React from "react";
 import {login, register} from "../../api/user";
 import { useHistory } from "react-router-dom";
 
-const UserRegister = (props) => {
+const UserRegister = () => {
   let history = useHistory();
 
   const onSubmit = (e) => {

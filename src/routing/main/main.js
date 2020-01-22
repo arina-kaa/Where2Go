@@ -10,6 +10,7 @@ const MainRouting = () => (
         <Route path="/" exact component={Home} />
         <Route path="/event" component={Event} />
         <Route path="/user" component={User} />
+        <Route path="/user" component={User} />
       </Switch>
     </main>
 );

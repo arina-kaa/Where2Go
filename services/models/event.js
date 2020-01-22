@@ -3,24 +3,23 @@ const mongoose = require('mongoose');
 const Scheme = mongoose.Schema;
 
 const eventSchema = new Scheme({
+  created_by: {
+    type: String
+  },
   title: {
-    type: String,
-    required: true
+    type: String
   },
   datetime: {
-    type: Date,
-    required: true
+    type: Date
   },
   address: {
-    type: String,
-    required: true
+    type: String
   },
   phone: {
     type: String
   },
   short_description: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
     type: String
@@ -32,12 +31,13 @@ const eventSchema = new Scheme({
     type: Array
   },
   age_limit: {
-    type: Number,
-    required: true
+    type: String
   },
   likes_count: {
-    type: Number,
-    default: 0
+    type: Number
+  },
+  image_path: {
+    type: String
   }
 }, {
   timestamps: true

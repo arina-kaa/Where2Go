@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 require('dotenv-flow').config();
 
@@ -10,11 +11,16 @@ const env = process.env.NODE_ENV;
 const port = process.env.PORT;
 
 app.use(express.json());
+app.use(express.static('public'));
+app.use(fileUpload({
+  createParentPath: true
+}));
+//app.use(express.static('uploads'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: false
+    extended: true
   })
 );
 

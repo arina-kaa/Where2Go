@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import jwt_decode from 'jwt-decode';
 
-const UserProfileInfo = (props) => {
+const UserProfileInfo = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -9,11 +9,14 @@ const UserProfileInfo = (props) => {
 
   useEffect(() => {
     const token = localStorage.usertoken;
-    const decoded = jwt_decode(token);
-    setFirstName(decoded.first_name);
-    setLastName(decoded.last_name);
-    setEmail(decoded.email);
-    setRole(decoded.role);
+    let decoded = {};
+    if (token) {
+        decoded = jwt_decode(token);
+        setFirstName(decoded.first_name);
+        setLastName(decoded.last_name);
+        setEmail(decoded.email);
+        setRole(decoded.role);
+    }
     }, []
   );
 

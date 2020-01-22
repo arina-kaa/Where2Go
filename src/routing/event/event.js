@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import EventsList from "../../components/event-list/event-list";
-import Event from "../../components/event-list/event-list";
+import Event from "../../components/event/event";
 import EventCreate from "../../components/event-create/event-create";
 
 const EventRouting = () => (

@@ -1,8 +1,10 @@
 import React/*, { useState, useEffect }*/ from 'react';
 
-const Home = (props) => {
+const Home = () => {
   return(
-    <h1>Home page</h1>
+      <div className="container">
+          <h1>Главная</h1>
+      </div>
   )
 };
 
