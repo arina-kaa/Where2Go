@@ -31,24 +31,22 @@ const Card = (props) =>
     };
 
     return (
-        <div className="col-sm-12 col-md-6 col-lg-4">
-            <div className="card">
-                {(props.card_info.image_path)
-                    ? <div id={imageId} className="card-img-top"> </div>
+        <div className="card">
+            {(props.card_info.image_path)
+                ? <div id={imageId} className="card-img-top"> </div>
+                : null
+            }
+            <div className="card-body">
+                <h5 className="card-title">{props.card_info.title}</h5>
+                <p className="card-text">{props.card_info.short_description}</p>
+                <p className="card-time">{moment(props.card_info.datetime).format('llll')}</p>
+                <Link to={"/event/" + props.card_info._id} className="btn btn-outline-success">Перейти</Link>
+                {(props.with_like_button) ?
+                    (isLiked)
+                        ? <i className="icon ion-md-heart" onClick={handleDislike}> </i>
+                        : <i className="icon ion-md-heart-empty" onClick={handleLike}> </i>
                     : null
                 }
-                <div className="card-body">
-                    <h5 className="card-title">{props.card_info.title}</h5>
-                    <p className="card-text">{props.card_info.short_description}</p>
-                    <p className="card-time">{moment(props.card_info.datetime).format('llll')}</p>
-                    <Link to={"/event/" + props.card_info._id} className="btn btn-outline-success">Перейти</Link>
-                    {(props.with_like_button) ?
-                        (isLiked)
-                            ? <i className="icon ion-md-heart" onClick={handleDislike}> </i>
-                            : <i className="icon ion-md-heart-empty" onClick={handleLike}> </i>
-                        : null
-                    }
-                </div>
             </div>
         </div>
     )

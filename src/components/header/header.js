@@ -10,7 +10,7 @@ const Header = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
-    history.push('/event/list');
+    history.push('/');
   };
   const loginRegLink = (
     <div className="form-inline my-2 my-lg-0">
@@ -27,9 +27,10 @@ const Header = () => {
 
   return(
     <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-      <Link to="/event/list" className="navbar-brand">Where2go</Link>
+      <Link to="/" className="navbar-brand">Where2go</Link>
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav mr-auto">
+            <Link to="/event/list" className="nav-link">Events List</Link>
             { localStorage.usertoken
                 ? <li className="nav-item">
                     <Link to="/event/create" className="nav-link">Create Event</Link>

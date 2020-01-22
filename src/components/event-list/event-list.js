@@ -36,7 +36,7 @@ const EventList = () =>
     {
         return (
             <div className="container">
-                <h1>Список событий</h1>
+                <h1>Все предстоящие события</h1>
                 <CardList items={events} />
             </div>
         );

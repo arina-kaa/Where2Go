@@ -7,7 +7,9 @@ const upload_path = process.env.UPLOAD_PATH;
 
 events.route('/').get((req, res) =>
 {
-    Event.find()
+    Event.find({
+        datetime: {$gte: new Date()}
+    }).sort('datetime')
         .then(events => res.json(events))
         .catch(err => res.json({message: err}));
 });
@@ -87,7 +89,7 @@ events.route('/multipleByIds').get((req, res) =>
 {
     Event.find({
         '_id': req.query.ids
-    })
+    }).sort('datetime')
         .then(events => res.json(events))
         .catch(err => res.json({error: err}));
 });
