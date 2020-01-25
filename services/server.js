@@ -15,7 +15,6 @@ app.use(express.static('public'));
 app.use(fileUpload({
   createParentPath: true
 }));
-//app.use(express.static('uploads'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(

@@ -1,4 +1,4 @@
-import {addEvent} from "../../api/event";
+import {addEvent} from '../../api/event';
 
 export const handleFormSubmit = (formElements) => {
   const formData = new FormData();

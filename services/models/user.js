@@ -4,7 +4,7 @@ const Scheme = mongoose.Schema;
 
 const userSchema = new Scheme({
   first_name: {
-    type: String,  
+    type: String,
     trim: true
   },
   last_name: {

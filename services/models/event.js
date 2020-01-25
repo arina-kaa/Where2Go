@@ -7,10 +7,12 @@ const eventSchema = new Scheme({
     type: String
   },
   title: {
-    type: String
+    type: String,
+    required: true
   },
   datetime: {
-    type: Date
+    type: Date,
+    required: true
   },
   address: {
     type: String
